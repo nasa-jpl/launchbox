@@ -1,0 +1,79 @@
+# -----------
+# Application
+# -----------
+
+# Build
+/container/builds/*
+!/container/builds/.gitkeep
+
+# Services
+/container/services/*
+!/container/services/.gitkeep
+
+# Sites
+/container/sites/*
+!/container/sites/.gitkeep
+
+# Networking
+/container/nginx/certs/*
+/container/nginx/sites/*
+/container/uwsgi/sockets/*.sock
+/container/uwsgi/stats/*.sock
+/container/uwsgi/vassals/*.ini
+
+# Networking: Exclude
+!/container/nginx/certs/.gitkeep
+!/container/nginx/sites/.gitkeep
+
+# Plugins
+/container/plugins/*
+!/container/plugins/.gitkeep
+
+# -------
+# Tooling
+# -------
+
+# Environments
+.env
+.venv
+venv/
+
+# IntelliJ
+out/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Node
+node_modules/
+
+# OS Files
+.DS_Store
+
+# Parcel
+.parcel-cache/
+
+# PyCharm
+.idea
+.idea_modules/
+
+# Pyre type checker
+.pyre/
+
+# Python
+*.pyc
+__pycache__/
+.pytype/
+
+# Rope project settings
+.ropeproject
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# VS Code
+.vscode
+.vscode/settings.json

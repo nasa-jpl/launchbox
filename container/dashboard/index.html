@@ -1,0 +1,249 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Launchbox</title>
+    <link rel="stylesheet" href="/static/app.css">
+  </head>
+  <body>
+    <div class="h-screen flex overflow-hidden bg-gray-200">
+      <div class="bg-indigo-700 md:flex md:flex-shrink-0">
+        <div class="flex flex-col w-56">
+          <div class="flex flex-col flex-grow pt-4 overflow-y-auto">
+            <div class="flex items-center flex-shrink-0 px-4">
+              <div class="font-semibold text-2xl text-white">Launchbox</div>
+            </div>
+            <div class="mt-5 flex-1 flex flex-col">
+              <nav id="sidebar_menu" class="flex-1 px-2 space-y-1">
+                <a href="#sites">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                  </svg>
+                  <div class="title">Sites</div>
+                  <div class="right"></div>
+                </a>
+                <a href="#services">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M6.625 2.655A9 9 0 0119 11a1 1 0 11-2 0 7 7 0 00-9.625-6.492 1 1 0 11-.75-1.853zM4.662 4.959A1 1 0 014.75 6.37 6.97 6.97 0 003 11a1 1 0 11-2 0 8.97 8.97 0 012.25-5.953 1 1 0 011.412-.088z" clip-rule="evenodd" />
+                    <path fill-rule="evenodd" d="M5 11a5 5 0 1110 0 1 1 0 11-2 0 3 3 0 10-6 0c0 1.677-.345 3.276-.968 4.729a1 1 0 11-1.838-.789A9.964 9.964 0 005 11zm8.921 2.012a1 1 0 01.831 1.145 19.86 19.86 0 01-.545 2.436 1 1 0 11-1.92-.558c.207-.713.371-1.445.49-2.192a1 1 0 011.144-.83z" clip-rule="evenodd" />
+                    <path fill-rule="evenodd" d="M10 10a1 1 0 011 1c0 2.236-.46 4.368-1.29 6.304a1 1 0 01-1.838-.789A13.952 13.952 0 009 11a1 1 0 011-1z" clip-rule="evenodd" />
+                  </svg>
+                  <div class="title">Services</div>
+                  <div class="right"></div>
+                </a>
+                <a href="#deploys">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
+                  </svg>
+                  <div class="title">Deploys</div>
+                  <div class="right"></div>
+                </a>
+                <a href="#monitoring">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M5.05 3.636a1 1 0 010 1.414 7 7 0 000 9.9 1 1 0 11-1.414 1.414 9 9 0 010-12.728 1 1 0 011.414 0zm9.9 0a1 1 0 011.414 0 9 9 0 010 12.728 1 1 0 11-1.414-1.414 7 7 0 000-9.9 1 1 0 010-1.414zM7.879 6.464a1 1 0 010 1.414 3 3 0 000 4.243 1 1 0 11-1.415 1.414 5 5 0 010-7.07 1 1 0 011.415 0zm4.242 0a1 1 0 011.415 0 5 5 0 010 7.072 1 1 0 01-1.415-1.415 3 3 0 000-4.242 1 1 0 010-1.415zM10 9a1 1 0 011 1v.01a1 1 0 11-2 0V10a1 1 0 011-1z" clip-rule="evenodd" />
+                  </svg>
+                  <div class="title">Monitoring</div>
+                  <div class="right"></div>
+                </a>
+                <a href="#spec">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M2 5a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm3.293 1.293a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 01-1.414-1.414L7.586 10 5.293 7.707a1 1 0 010-1.414zM11 12a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd" />
+                  </svg>
+                  <div class="title">API Spec</div>
+                  <div class="right"></div>
+                </a>
+              </nav>
+            </div>
+          </div>
+          <div class="p-4 align-bottom text-center text-lg" id="user_state"></div>
+        </div>
+      </div>
+
+      <div class="flex flex-col w-0 flex-1 overflow-hidden">
+        <div class="relative z-10 flex-shrink-0 flex bg-white border-b border-gray-100 shadow">
+          <div class="flex-1 px-4 py-3 flex justify-between">
+            <div class="flex-1 flex">
+              <div class="w-full flex md:ml-0">
+                <div class="relative w-full">
+                  <div class="absolute inset-y-0 left-0 flex items-center">
+                    <div class="text-2xl font-semibold text-white">
+                      <span id="env_data" class="text-gray-600">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ml-4 flex items-center md:ml-6">
+              <div class="text-2xl font-semibold text-gray-400">
+                Management Layer
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="appview hidden" view="sites">
+          <div class="view" name="list"></div>
+        </div>
+
+        <div class="appview hidden" view="site">
+          <nav class="submenu" view="site">
+            <h3 id="site_title" class="left"></h3>
+            <div class="tab default" subview="hostnames">
+              Hostnames
+            </div>
+            <div class="tab" subview="notes">
+              Notes
+            </div>
+            <div class="tab" subview="resources">
+              Resources
+            </div>
+            <div class="tab" subview="events">
+              Events
+            </div>
+            <div class="tab" subview="manage">
+              Manage
+            </div>
+          </nav>
+          <div class="subview" name="hostnames"></div>
+          <div class="subview" name="notes"></div>
+          <div class="subview" name="resources"></div>
+          <div class="subview" name="events"></div>
+          <div class="subview" name="manage"></div>
+        </div>
+
+        <div class="appview hidden" view="services">
+          <div class="view" name="list"></div>
+        </div>
+
+        <div class="appview hidden" view="service">
+          <nav class="submenu" view="service">
+            <h3 id="service_title" class="left"></h3>
+            <div class="tab default" subview="deploys">
+              Deploys
+            </div>
+          </nav>
+          <div class="subview" name="deploys"></div>
+        </div>
+
+        <div class="appview hidden" view="deploys">
+          <div class="view" name="list"></div>
+        </div>
+
+        <div class="appview hidden" view="deploy">
+          <nav class="submenu" view="deploy">
+            <h3 class="left"></h3>
+            <h3 class="right"></h3>
+            <div class="tab default" subview="service">
+              Service
+            </div>
+            <div class="tab" subview="sites">
+              Sites
+            </div>
+          </nav>
+          <div class="subview" name="service"></div>
+          <div class="subview" name="sites"></div>
+        </div>
+
+        <div class="appview hidden" view="spec">
+          <iframe src="/spec/index.html#api.yaml"></iframe>
+        </div>
+
+        <div class="appview hidden" view="monitoring">
+          <nav class="submenu" view="monitoring">
+            <div class="tab default" subview="overview">
+              Status
+            </div>
+            <div class="tab" subview="detailed">
+              Advanced
+            </div>
+          </nav>
+          <div class="subview" name="overview"></div>
+          <div class="subview" name="detailed"></div>
+        </div>
+
+        <div class="appview hidden" view="auth">
+          <div class="flex flex-row">
+            <div class="flex min-w-full items-center justify-center mt-20">
+              <div class="w-full max-w-lg space-y-8">
+                <div>
+                  <h1 class="mt-6 text-center text-4xl font-bold tracking-tight text-indigo-800">Launchbox</h1>
+                  <hr class="my-4 border-gray-300">
+                  <h2 class="text-center text-3xl font-bold tracking-tight text-gray-900">Sign in to your account</h2>
+                  <p class="mt-2 text-center text-sm text-gray-600">
+                    Or
+                    <a href="#register" class="font-medium text-indigo-500 hover:text-indigo-400">Register for an account</a>
+                  </p>
+                </div>
+                <form class="mt-8 space-y-6" action="/api/auth/login" method="POST">
+                  <div class="-space-y-px rounded-md shadow-sm">
+                    <div>
+                      <label for="login_user_input" class="sr-only">Username</label>
+                      <input id="login_user_input" name="user_id" type="text" autocomplete="username" required class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Username">
+                    </div>
+                    <div>
+                      <label for="login_pass_input" class="sr-only">Password</label>
+                      <input id="login_pass_input" name="password" type="password" autocomplete="current-password" required class="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Password">
+                    </div>
+                  </div>
+                  <div>
+                    <button type="submit" class="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-800 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                      <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                        <!-- Heroicon name: mini/lock-closed -->
+                        <svg class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                          <path fill-rule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clip-rule="evenodd" />
+                        </svg>
+                      </span>
+                      Sign in
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="appview hidden" view="register">
+          <div class="flex flex-row">
+            <div class="flex min-w-full items-center justify-center mt-20">
+              <div class="w-full max-w-lg space-y-8">
+                <div>
+                  <h1 class="mt-6 text-center text-4xl font-bold tracking-tight text-indigo-800">Launchbox</h1>
+                  <hr class="my-4 border-gray-300">
+                  <h2 class="text-center text-3xl font-bold tracking-tight text-gray-900">Create an account</h2>
+                  <p class="mt-2 text-center text-sm text-gray-600">
+                    Or
+                    <a href="#auth" class="font-medium text-indigo-500 hover:text-indigo-400">Login to an account</a>
+                  </p>
+                </div>
+                <form class="mt-8 space-y-6" action="/api/auth/register" method="POST">
+                  <div class="-space-y-px rounded-md shadow-sm">
+                    <div>
+                      <label for="register_user_input" class="sr-only">Username</label>
+                      <input id="register_user_input" name="user_id" type="text" required class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Username">
+                    </div>
+                    <div>
+                      <label for="register_pass_input" class="sr-only">Password</label>
+                      <input id="register_pass_input" name="password" type="password" required class="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Password">
+                    </div>
+                  </div>
+                  <div>
+                    <button type="submit" class="group relative flex w-full justify-center rounded-md border border-transparent bg-green-600 py-2 px-4 text-sm font-medium text-white hover:bg-green-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                      Register
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/static/app.api.js"></script>
+    <script src="/static/app.route.js"></script>
+    <script src="/static/app.utils.js"></script>
+    <script src="/static/app.views.js"></script>
+    <script src="/static/app.js"></script>
+  </body>
+</html>
