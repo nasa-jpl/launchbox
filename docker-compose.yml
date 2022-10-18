@@ -1,0 +1,47 @@
+version: "3.8"
+
+volumes:
+  postgres-data:
+  minio-data:
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./container:/usr/src/app/
+    ports:
+      # Nginx
+      - ${PORT_HTTP}:8080
+      - ${PORT_HTTPS}:8443
+    env_file: .env
+    depends_on:
+      - db
+      - redis
+      - minio
+    links:
+      - minio
+
+  db:
+    image: postgres:12.3
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    env_file: .env
+    ports:
+      - ${POSTGRES_PORT}:${POSTGRES_PORT}
+
+  minio:
+    image: minio/minio
+    env_file: .env
+    volumes:
+      - minio-data:/data
+    ports:
+      - ${MINIO_PORT}:${MINIO_PORT}
+      - 9001:9001
+    command: server /data --console-address ":9001"
+
+  redis:
+    image: redis:5.0.6
+    expose:
+      - 6379

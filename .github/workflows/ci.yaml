@@ -1,0 +1,38 @@
+name: Lint
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '**.py'
+
+jobs:
+  run-linters:
+    name: Run linters
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+          cache: 'pip' # caching pip dependencies
+
+      - name: Install dependencies
+        run: pip install -r container/config/python/linting.txt
+
+      - name: Lint with flake8
+        run: flake8 .
+
+      - name: Lint with isort
+        run: isort --profile black --check-only --diff .
+
+      - name: Lint with black
+        run: black --diff --check .

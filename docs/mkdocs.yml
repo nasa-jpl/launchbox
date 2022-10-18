@@ -1,0 +1,35 @@
+site_name: Launchbox
+docs_dir: pages
+markdown_extensions:
+    - admonition
+    - attr_list
+    - md_in_html
+    - pymdownx.emoji:
+        emoji_index: !!python/name:materialx.emoji.twemoji 
+        emoji_generator: !!python/name:materialx.emoji.to_svg
+    - pymdownx.highlight:
+        anchor_linenums: true
+        use_pygments: true
+    - pymdownx.inlinehilite
+    - pymdownx.snippets
+    - pymdownx.superfences
+    - pymdownx.tasklist:
+        custom_checkbox: true
+nav:
+    - "index.md"
+    - "concepts.md"
+    - "setup.md"
+    - Features:
+        - "features/services.md"
+        - "features/resources.md"
+        - "features/plugins.md"
+    - Reference:
+        - "reference/api-routes.md"
+        - "reference/dashboard-routes.md"
+        - "reference/deployment-schema.md"
+        - launch.yaml Schema: "reference/launch.yaml-schema.md"
+theme:
+    name: material
+    features:
+        - navigation.sections
+        - navigation.tracking

@@ -1,0 +1,326 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+a {
+    @apply text-indigo-500;
+}
+
+.appview {
+    @apply flex-1 relative overflow-y-auto focus:outline-none;
+}
+
+.appview nav.submenu {
+    @apply flex py-4 justify-center space-x-2 bg-gray-300 border-b border-dark;
+}
+
+.appview nav.submenu .left {
+    @apply absolute left-10 mt-1 text-lg font-medium text-gray-900;
+}
+
+.appview nav.submenu .right {
+    @apply absolute right-10 mt-1 text-lg font-medium text-gray-900;
+}
+
+.appview nav.submenu .tab {
+    @apply text-gray-500 hover:text-gray-700 px-3 py-2 font-medium text-sm rounded-md cursor-pointer;
+}
+
+.appview nav.submenu .current {
+    @apply bg-gray-600 text-white hover:text-gray-200;
+}
+
+.appview .subview {
+    @apply m-8 overflow-scroll scrollbar-hide;
+}
+
+.appview .view {
+    @apply m-8 overflow-scroll scrollbar-hide;
+}
+
+.appview .bar {
+    @apply flex mb-3 items-end;
+}
+
+.appview .left {
+    @apply grow ml-2 text-xl font-medium;
+}
+
+.appview .right {
+    @apply shrink text-xl font-medium;
+}
+
+.badge {
+    @apply align-middle;
+}
+
+.badge.gray {
+    @apply p-2 rounded-full bg-gray-300 text-xs font-semibold text-gray-700;
+}
+
+.badge.dark {
+    @apply p-2 rounded-full bg-gray-500 text-xs font-semibold text-white;
+}
+
+.badge.error {
+    @apply p-2 rounded-full bg-red-400 text-xs font-semibold text-white;
+}
+
+.badge.main {
+    @apply p-2 rounded-full bg-indigo-700 text-xs font-semibold text-white;
+}
+
+.badge.primary {
+    @apply p-2 rounded-full bg-indigo-100 text-xs font-semibold text-indigo-700;
+}
+
+.badge.success {
+    @apply p-2 rounded-full bg-green-400 text-xs font-semibold text-gray-900;
+}
+
+.border-dark {
+    border: 1px solid #bbb;
+}
+
+button {
+    @apply px-3 py-1 rounded border border-gray-300 inline-flex items-center focus:ring-0;
+}
+
+button:hover {
+    @apply border-gray-700;
+}
+
+button.constructive {
+    @apply bg-green-100 text-green-600 hover:text-green-900 hover:bg-green-300;
+}
+
+button.constructive-lg {
+    @apply bg-green-100 text-lg text-green-600 hover:text-green-900 hover:bg-green-300;
+}
+
+button.dark {
+    @apply bg-gray-600 text-white hover:bg-gray-900;
+}
+
+button.destructive {
+    @apply bg-red-100 text-red-600 hover:text-red-900 hover:bg-red-300;
+}
+
+button.destructive-lg {
+    @apply bg-red-100 text-lg text-red-600 hover:text-red-900 hover:bg-red-300;
+}
+
+button.main {
+    @apply bg-indigo-700 text-white hover:text-gray-100 hover:bg-indigo-900;
+}
+
+button.main-lg {
+    @apply bg-indigo-700 text-lg text-white hover:text-gray-100 hover:bg-indigo-900;
+}
+
+button.primary {
+    @apply bg-indigo-100 text-indigo-700 hover:text-indigo-900 hover:bg-indigo-300;
+}
+
+button.primary-lg {
+    @apply bg-indigo-100 text-lg text-indigo-700 hover:text-indigo-900 hover:bg-indigo-300;
+}
+
+button.icon {
+    @apply pl-0 pr-2 py-0;
+}
+
+button svg {
+    @apply p-1 mr-2;
+    width: 26px;
+    height: 26px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+button.dark svg {
+    @apply bg-gray-500;
+}
+
+button.primary svg {
+    @apply bg-indigo-200;
+}
+
+iframe {
+    @apply min-w-full min-h-full;
+}
+
+.modal {
+    @apply relative z-10;
+}
+
+.modal .modal-bg {
+    @apply fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity;
+}
+
+.modal .modal-view {
+    @apply fixed inset-0 z-10 overflow-y-auto;
+}
+
+.modal .modal-view .modal-frame {
+    @apply flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0;
+}
+
+.modal .modal-view .modal-body {
+    @apply relative transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6;
+}
+
+.modal .modal-view .modal-body .modal-title {
+    @apply text-xl font-medium leading-6 text-gray-900;
+}
+
+.modal .modal-view .modal-body label {
+    @apply block text-base font-medium text-gray-700;
+}
+
+.modal .modal-view .modal-body input[type=text] {
+    @apply block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 placeholder:text-gray-400 sm:text-sm;
+}
+
+.modal .modal-view .modal-body select {
+    @apply relative block w-full rounded-md border-gray-300 bg-transparent focus:z-10 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm;
+}
+
+#sidebar_menu a {
+    @apply flex items-center px-2 py-2 rounded-md text-indigo-300;
+}
+
+#sidebar_menu a.current {
+    @apply bg-indigo-800 text-white;
+}
+
+#sidebar_menu a svg {
+    @apply mr-3 h-6 w-6 text-indigo-300;
+}
+
+#sidebar_menu a .title {
+    @apply flex flex-grow text-sm font-medium;
+}
+
+#sidebar_menu a .right {
+    @apply flex flex-1 justify-end text-right;
+}
+
+#sidebar_menu a .right .badge {
+    @apply px-2 py-1;
+}
+
+span.bold {
+    @apply text-lg font-bold;
+}
+
+span.gray {
+    @apply text-gray-500;
+}
+
+span.light {
+    @apply text-gray-400;
+}
+
+span.medium {
+    @apply font-medium;
+}
+
+table {
+    @apply min-w-full border border-dark divide-y divide-gray-200;
+}
+
+table thead {
+    @apply bg-gray-500;
+}
+
+table thead tr {
+    @apply bg-gray-500;
+}
+
+table tbody {
+    @apply bg-white divide-y divide-gray-200;
+}
+
+table tbody tr {
+    vertical-align: middle;
+}
+
+table tbody tr.top {
+    vertical-align: top;
+}
+
+table th {
+    @apply px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider;
+}
+
+table.col-4 th {
+    width: 25%;
+    max-width: 25%;
+}
+
+table.col-5 th {
+    width: 20%;
+    max-width: 20%;
+}
+
+table.col-6 th {
+    width: 16%;
+    max-width: 16%;
+}
+
+table.col-7 th {
+    width: 14%;
+    max-width: 14%;
+}
+
+table.col-8 th {
+    width: 12%;
+    max-width: 12%;
+}
+
+table.data-val th {
+    width: 80%;
+    max-width: 80%;
+}
+
+table.data-val th:nth-child(1+) {
+    width: 20%;
+    min-width: 20%;
+    max-width: 20%;
+}
+
+table td {
+    @apply px-6 py-4 text-left text-sm whitespace-nowrap;
+}
+
+table td.right {
+    @apply text-right;
+}
+
+table td.wide {
+    width: 55%;
+    max-width: 55%;
+}
+
+table td.wide-wrap {
+    @apply whitespace-normal;
+    width: 55%;
+    max-width: 55%;
+}
+
+table td a:not(.destructive) {
+    @apply text-indigo-600 hover:text-indigo-900;
+}
+
+table input[type="checkbox"] {
+    @apply focus:outline-none focus:ring-0;
+}
+
+table input[type="text"] {
+    @apply min-w-full m-0 border-gray-200 text-gray-900 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-0 sm:text-sm;
+}
+
+table textarea {
+    @apply min-w-full m-0 border-gray-200 text-gray-900 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-0 sm:text-sm;
+}

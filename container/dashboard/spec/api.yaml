@@ -1,0 +1,536 @@
+openapi: 3.0.1
+info:
+  title: Launchbox - Management API
+  version: '0.8'
+tags:
+  - name: env
+  - name: auth
+  - name: sso
+  - name: search
+  - name: stats
+  - name: sites
+  - name: hostnames
+  - name: notes
+  - name: users
+paths:
+  /api/:
+    get:
+      tags:
+        - env
+      summary: Get environment
+      operationId: getAPI
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Env'
+          description: 'Success'
+  /api/auth/state:
+    get:
+      tags:
+        - auth
+      summary: Authentication state
+      operationId: authState
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                properties:
+                  user:
+                    $ref: '#/components/schemas/Auth'
+          description: 'Success'
+  /api/sso/acs:
+    post:
+      tags:
+        - sso
+      summary: SAML ACS
+      operationId: ssoACS
+      responses:
+        307:
+          description: Redirect
+          headers:
+            Location:
+              description: SAML Callback
+              schema:
+                type: URL
+  /api/sso/metadata:
+    get:
+      tags:
+        - sso
+      summary: SAML Metadata
+      operationId: ssoMetadata
+      responses:
+        200:
+          content:
+            text/xml: {}
+          description: 'Success'
+  /api/search/users/{query}:
+    get:
+      tags:
+        - search
+      summary: Search users via LDAP
+      operationId: searchUsers
+      parameters:
+        - name: query
+          in: path
+          description: First name, last name, username or badge number
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                properties:
+                  users:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/LDAPUser'
+          description: 'Success'
+        401:
+          description: 'Unauthorized'
+      security:
+        - api_key: []
+  /api/stats/latest:
+    get:
+      tags:
+        - stats
+      summary: Latest statistics
+      operationId: latestStats
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  latest:
+                    type: object
+          description: 'Success'
+        401:
+          description: 'Unauthorized'
+      security:
+        - api_key: []
+  /api/sites:
+    get:
+      tags:
+        - sites
+      summary: List sites
+      operationId: listSites
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                properties:
+                  sites:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Site'
+          description: 'Success'
+        401:
+          description: 'Unauthorized'
+      security:
+        - api_key: []
+  /api/sites/{alias}:
+    get:
+      tags:
+        - sites
+      summary: Get site
+      operationId: getSite
+      parameters:
+        - name: alias
+          in: path
+          description: Site identifier
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                properties:
+                  site:
+                    $ref: '#/components/schemas/SiteExt'
+          description: 'Success'
+        401:
+          description: 'Unauthorized'
+      security:
+        - api_key: []
+  /api/sites/{alias}/add:
+    post:
+      tags:
+        - sites
+      summary: Add site
+      operationId: addSite
+      parameters:
+        - name: alias
+          in: path
+          description: Site identifier
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: 'Success'
+        401:
+          description: 'Unauthorized'
+      security:
+        - api_key: []
+  /api/sites/{alias}/remove:
+    post:
+      tags:
+        - sites
+      summary: Remove site
+      operationId: removeSite
+      parameters:
+        - name: alias
+          in: path
+          description: Site identifier
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: 'Success'
+        401:
+          description: 'Unauthorized'
+      security:
+        - api_key: []
+  /api/sites/{alias}/update:
+    post:
+      tags:
+        - sites
+      summary: Update site attribute
+      operationId: updateSite
+      parameters:
+        - name: alias
+          in: path
+          description: Site identifier
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                attr:
+                  type: string
+                value:
+                  type: string
+      responses:
+        200:
+          description: 'Success'
+        401:
+          description: 'Unauthorized'
+      security:
+        - api_key: []
+  /api/sites/{alias}/hostnames:
+    get:
+      tags:
+        - hostnames
+      summary: List hostnames for site
+      operationId: getSiteHostnames
+      parameters:
+        - name: alias
+          in: path
+          description: Site identifier
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                properties:
+                  hostnames:                  
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Hostname'
+          description: 'Success'
+        401:
+          description: 'Unauthorized'
+      security:
+        - api_key: []
+  /api/sites/{alias}/hostnames/add:
+    post:
+      tags:
+        - hostnames
+      summary: Add new hostname to site
+      operationId: addHostname
+      parameters:
+        - name: alias
+          in: path
+          description: Site identifier
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                hostname:
+                  type: string
+      responses:
+        200:
+          description: 'Success'
+        401:
+          description: 'Unauthorized'
+      security:
+        - api_key: []
+  /api/sites/{alias}/hostnames/primary:
+    post:
+      tags:
+        - hostnames
+      summary: Set primary hostname for site
+      operationId: primaryHostname
+      parameters:
+        - name: alias
+          in: path
+          description: Site identifier
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                hostname:
+                  type: string
+      responses:
+        200:
+          description: 'Success'
+        401:
+          description: 'Unauthorized'
+      security:
+        - api_key: []
+  /api/sites/{alias}/hostnames/remove:
+    post:
+      tags:
+        - hostnames
+      summary: Remove existing hostname from site
+      operationId: removeHostname
+      parameters:
+        - name: alias
+          in: path
+          description: Site identifier
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                hostname:
+                  type: string
+      responses:
+        200:
+          description: 'Success'
+        401:
+          description: 'Unauthorized'
+      security:
+        - api_key: []
+  /api/sites/{alias}/notes/add:
+    post:
+      tags:
+        - notes
+      summary: Add note to site
+      operationId: addNote
+      parameters:
+        - name: alias
+          in: path
+          description: Site identifier
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+      responses:
+        200:
+          description: 'Success'
+        401:
+          description: 'Unauthorized'
+      security:
+        - api_key: []
+  /api/sites/{alias}/users:
+    post:
+      tags:
+        - users
+      summary: List users for site
+      operationId: listUsers
+      parameters:
+        - name: alias
+          in: path
+          description: Site identifier
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                properties:
+                  users:
+                    type: array
+                    $ref: '#/components/schemas/User'
+          description: 'Success'
+        401:
+          description: 'Unauthorized'
+      security:
+        - api_key: []
+components:
+  schemas:
+    Auth:
+      type: object
+      properties:
+        user_id:
+          type: string
+          description: User ID
+        provider:
+          type: string
+          description: Auth Provider
+    Env:
+      type: object
+      properties:
+        api:
+          type: string
+          default: 'lb'
+        dns:
+          type: string
+          description: DNS Target
+        env:
+          type: string
+          description: Environment Type
+        root:
+          type: string
+          description: Root Hostname
+        version:
+          type: integer
+          format: int32
+          description: API Version
+    Site:
+      type: object
+      properties:
+        alias:
+          type: string
+        hostnames:
+          type: array
+          items:
+            $ref: '#/components/schemas/Hostname'
+    SiteExt:
+      allOf:
+        - $ref: '#/components/schemas/Site'
+      type: object
+      properties:
+        notes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Note'
+    Hostname:
+      type: object
+      properties:
+        name:
+          type: string
+          format: hostname
+        primary:
+          type: boolean
+        ssl_cert:
+          type: boolean
+        ssl_expires:
+          type: number
+          description: Unix Timestamp
+        ssl_req_id:
+          type: string
+    LDAPUser:
+      type: object
+      properties:
+        username:
+          type: string
+        first_name:
+          type: string
+        middle_initial:
+          type: string
+        last_name:
+          type: string
+        display_name:
+          type: string
+        badge:
+          type: string
+        email:
+          type: string
+          format: email
+        phone:
+          type: string
+        dept:
+          type: string
+        title:
+          type: string
+    Note:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        username:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        text:
+          type: string
+        timestamp:
+          type: number
+          description: Unix Timestamp
+    User:
+      type: object
+      properties:
+        $username:
+          type: object
+          properties:
+            first_name:
+              type: string
+            middle_initial:
+              type: string
+            last_name:
+              type: string
+            display_name:
+              type: string
+            is_active:
+              type: boolean
+            is_editor:
+              type: boolean
+            is_moderator:
+              type: boolean
+            is_superuser:
+              type: boolean
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: launchbox
+      in: cookie

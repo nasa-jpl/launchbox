@@ -1,0 +1,44 @@
+# See the documentation for all configuration options:
+# https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+version: 2
+updates:
+  - package-ecosystem: "pip"
+    # Look for requirements files in the `container/config/python/` directory
+    directory: "container/config/python/"
+    # Check PyPI for updates every day (weekdays)
+    schedule:
+      interval: "daily"
+    # Tag our GitHub team for review
+    reviewers:
+      - "nasa-jpl/dl-webdev"
+
+  - package-ecosystem: "npm"
+    # Look for `package.json` and `package-lock.json` files in the `container/dashboard/` directory
+    directory: "container/dashboard/"
+    # Check the npm registry for updates every day (weekdays)
+    schedule:
+      interval: "daily"
+    # Tag our GitHub team for review
+    reviewers:
+      - "nasa-jpl/dl-webdev"
+
+  - package-ecosystem: "docker"
+    # Look for a `Dockerfile` in the root directory
+    directory: "/"
+    # Check for updates once a week
+    schedule:
+      interval: "weekly"
+    # Tag our GitHub team for review
+    reviewers:
+      - "nasa-jpl/dl-webdev"
+
+  - package-ecosystem: "github-actions"
+    # Look for the `.github/workflows/` folder in the root directory
+    directory: "/"
+    # Check for updates once a week
+    schedule:
+      interval: "weekly"
+    # Tag our GitHub team for review
+    reviewers:
+      - "nasa-jpl/dl-webdev"

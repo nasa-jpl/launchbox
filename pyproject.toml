@@ -1,0 +1,11 @@
+[tool.black]
+line-length = 120
+target-version = ['py310']
+
+[tool.isort]
+filter_files = true
+known_first_party = ['api', 'manage', 'models', 'runtimes', 'storage', 'sync']
+known_third_party = ['boto3', 'requests']
+profile = 'black'
+py_version = 310
+skip_gitignore = true

@@ -1,0 +1,3 @@
+# `launch.yaml` Schema
+
+TK

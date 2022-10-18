@@ -1,0 +1,13 @@
+name: Lint
+
+on:
+  pull_request:
+    paths-ignore:
+      - '**.py'
+
+jobs:
+  run-linters:
+    name: Run linters
+    runs-on: ubuntu-latest
+    steps:
+      - run: 'echo "No linting required"'
