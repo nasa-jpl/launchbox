@@ -1,5 +1,5 @@
 # Base
-pip==22.2.2
+pip==22.3
 setuptools==65.5.0
 wheel==0.37.1
 
