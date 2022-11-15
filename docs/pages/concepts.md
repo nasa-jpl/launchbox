@@ -52,7 +52,7 @@ The three kinds of resources offered are:
 - **Caches** (currently supporting Redis)
 - **Storage** (currently supporting Amazon S3, or services that follow S3 API)
 
-For more details, [see the Resources page](features/resources/).
+For more details, [see the Resources page](../features/resources/).
 
 
 ## Plugins
