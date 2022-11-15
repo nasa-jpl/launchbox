@@ -29,7 +29,7 @@ In cases where a service requires a database or other resources,
 the application code will also need to be modified to
 use a different database for each site that uses the service.
 
-For more details, [see the Services page](features/services/).
+For more details, [see the Services page](../features/services/).
 
 
 ## Sites
