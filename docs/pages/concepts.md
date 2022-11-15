@@ -29,7 +29,7 @@ In cases where a service requires a database or other resources,
 the application code will also need to be modified to
 use a different database for each site that uses the service.
 
-For more details, [see the Services page](/features/services/).
+For more details, [see the Services page](../features/services/).
 
 
 ## Sites
@@ -52,7 +52,7 @@ The three kinds of resources offered are:
 - **Caches** (currently supporting Redis)
 - **Storage** (currently supporting Amazon S3, or services that follow S3 API)
 
-For more details, [see the Resources page](/features/resources/).
+For more details, [see the Resources page](../features/resources/).
 
 
 ## Plugins
@@ -62,7 +62,7 @@ with providers of things like identity, authentication, and SSL certificates.
 For example, at JPL we have closed-source plugins that connect Launchbox to
 our LDAP directory, SAML single-sign-on service, and internal SSL certificate generator.
 
-For more details, [see the Plugins page](/features/plugins/).
+For more details, [see the Plugins page](../features/plugins/).
 
 
 ## The Management Dashboard
