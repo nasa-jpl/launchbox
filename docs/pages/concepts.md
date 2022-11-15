@@ -62,7 +62,7 @@ with providers of things like identity, authentication, and SSL certificates.
 For example, at JPL we have closed-source plugins that connect Launchbox to
 our LDAP directory, SAML single-sign-on service, and internal SSL certificate generator.
 
-For more details, [see the Plugins page](features/plugins/).
+For more details, [see the Plugins page](../features/plugins/).
 
 
 ## The Management Dashboard
