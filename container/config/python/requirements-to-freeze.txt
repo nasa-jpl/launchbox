@@ -9,7 +9,7 @@ termcolor==2.0.1
 
 # Management
 bcrypt==4.0.1
-boto3==1.24.90
+boto3==1.26.123
 bottle==0.12.23
 cachetools==5.2.0
 cryptography==3.4.8
